@@ -1,0 +1,41 @@
+# Copyright (C) 2011
+# This file is distributed under the same license as the  package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Gemius for WordPress\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/gemius-for-wordpress\n"
+"POT-Creation-Date: 2011-12-05 11:04:15+00:00\n"
+"PO-Revision-Date: 2011-12-05 14:41+0100\n"
+"Last-Translator: Torben Lundsgaard <tl@tlamedia.dk>\n"
+"Language-Team: TLA Media\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Danish\n"
+"X-Poedit-Country: DENMARK\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: gemius.php:39
+msgid "Gemius for WordPress"
+msgstr "Gemius for WordPress"
+
+#: gemius.php:40
+msgid "All you need to do to setup Gemius for WordPress is enter the Gemius Identifier and you are good to go."
+msgstr "Alt du skal gøre for at opsætte Gemius for WordPress er at angive din Gemius Identifier, og så er du færdig."
+
+#: gemius.php:45
+msgid "Save Changes"
+msgstr "Gem ændringer"
+
+#: gemius.php:52
+msgid "Log in to Gemius. Find the Gemius Identifier and enter it below."
+msgstr "Log ind i Gemius. Find din Gemius Identifier og sæt den ind nedenfor."
+
+#: gemius.php:73
+msgid "Gemius is not configured!"
+msgstr "Gemius er ikke konfigureret!"
+
+#: gemius.php:75
+msgid "You must %1$s enter your Gemius Identifier%2$s."
+msgstr "Du skal %1$s indtaste din Gemius Identifier%2$s."
+

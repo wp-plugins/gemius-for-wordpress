@@ -4,7 +4,7 @@ Donate link: http://www.tlamedia.dk/
 Tags: gemius
 Requires at least: 2.9
 Tested up to: 3.3
-Stable tag: 0.1
+Stable tag: 0.1.1
 
 Simple implementation of the Gemius tracking script. 
 
@@ -19,6 +19,10 @@ Integrates [Gemius](http://www.gemius.com/) tracking on your blog.
 3. Enter the Gemius Identifier for the site
 
 == Changelog ==
+
+= 0.1.1 =
+
+* Added Danish translation.
 
 = 0.1 =
 
