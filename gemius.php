@@ -2,7 +2,7 @@
 /*
 Plugin Name: Gemius for WordPress
 Description: Integrates Gemius tracking on your blog.
-Version: 0.1.1
+Version: 0.2
 Author: TLA Media
 Author URI: http://www.tlamedia.dk/
 Plugin URI: http://wpplugins.tlamedia.dk/gemius-for-wordpress/
@@ -25,14 +25,14 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-define( 'GEMIUSWP_VERSION', '0.1.1' );
+define( 'GEMIUSWP_VERSION', '0.2' );
 
 
 if ( is_admin() && ! class_exists( 'TLA_GemiusWP_Admin' ) ) {
 
 	class TLA_GemiusWP_Admin {
 
-		function gemiuswp_options_page() {
+		function options_page() {
 			?>
 			<div class="wrap">
 				<div id="icon-options-general" class="icon32"><br /></div>
@@ -48,50 +48,65 @@ if ( is_admin() && ! class_exists( 'TLA_GemiusWP_Admin' ) ) {
 			<?php
 		}
 
-		function gemiuswp_section_text() {
+		function section_text() {
 			echo '<p>' . _e('Log in to Gemius. Find the Gemius Identifier and enter it below.', 'gemiuswp') . '</p>';
 		}
 
-		function gemiuswp_setting_string() {
+		function setting_string() {
 			$options = get_option('gemiuswp_options');
+			isset($options['gemius_identifier']) ? $options['gemius_identifier'] : $options['gemius_identifier'] = '';
 			echo "<input id='gemiuswp_text_string' name='gemiuswp_options[gemius_identifier]' size='40' type='text' value='{$options['gemius_identifier']}' />";
 		}
 
-		function gemiuswp_admin_init() {
+		function admin_init() {
+			$this->check_configuration();
 			register_setting( 'gemiuswp_options', 'gemiuswp_options' );
-			add_settings_section('gemiuswp_main', __('Settings'), array($this,'gemiuswp_section_text'), 'gemiuswp' );
-			add_settings_field('gemiuswp_text_string', 'Gemius Identifier', array($this,'gemiuswp_setting_string'), 'gemiuswp', 'gemiuswp_main');
+			add_settings_section('gemiuswp_main', __('Settings'), array($this,'section_text'), 'gemiuswp' );
+			add_settings_field('gemiuswp_text_string', 'Gemius Identifier', array($this,'setting_string'), 'gemiuswp', 'gemiuswp_main');
 			load_plugin_textdomain( 'gemiuswp', false, '/gemius-for-wordpress/languages' );
 		}
 
-		function gemiuswp_admin_add_page() {
-			add_options_page( 'Gemius Options', 'Gemius', 'manage_options', 'gemiuswp', array($this,'gemiuswp_options_page') );
+		function admin_add_page() {
+			add_options_page( 'Gemius Options', 'Gemius', 'manage_options', 'gemiuswp', array($this,'options_page') );
 		}
 
 		function gemius_warning() {
 			echo "<div id='gemius_warning' class='updated fade'><p><strong>";
 			_e('Gemius is not configured!', 'gemiuswp');
-			echo "</strong>";
+			echo "</strong> - ";
 			printf (__('You must %1$s enter your Gemius Identifier%2$s.', 'gemiuswp'), "<a href='options-general.php?page=gemiuswp'>", "</a>");
 			echo "</p></div>";
 			echo "<script type=\"text/javascript\">setTimeout(function(){jQuery('#gemius_warning').hide('slow');}, 10000);</script>";
 		}
 
-		static function gemiuswp_get_options() {
-			$options = get_option('gemiuswp_options');
-			return $options;
+		function check_configuration() {
+			$options = get_option( 'gemiuswp_options' );
+
+			$installed_version = isset($options['version']) ? $options['version'] : 0;
+			if ( version_compare( $installed_version, GEMIUSWP_VERSION, '!=' ) ) {
+				$options['version'] = GEMIUSWP_VERSION;
+				update_option( 'gemiuswp_options', $options );
+			}
+
+			if ( !$options['gemius_identifier'] || empty($options['gemius_identifier']) )
+				add_action('admin_notices', array($this,'gemius_warning') );
+
+		}
+
+		function uninstall_plugin() {
+			delete_option( 'gemiuswp_options' );
 		}
 
 		function __construct() {
-			add_action( 'admin_init', array($this,'gemiuswp_admin_init') );
-			add_action( 'admin_menu', array($this,'gemiuswp_admin_add_page') );
-			$options = get_option('gemiuswp_options');
-			if ( !$options['gemius_identifier'] || empty($options['gemius_identifier']) )
-				add_action('admin_notices', array($this,'gemius_warning') );
+			add_action( 'admin_init', array($this,'admin_init') );
+			add_action( 'admin_menu', array($this,'admin_add_page') );
 		}
 
 	}
+
 	new TLA_GemiusWP_Admin();
+	register_uninstall_hook( __FILE__, array( 'TLA_GemiusWP_Admin', 'uninstall_plugin' ) );
+
 }
 
 

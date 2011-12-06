@@ -20,6 +20,10 @@ Integrates [Gemius](http://www.gemius.com/) tracking on your blog.
 
 == Changelog ==
 
+= 0.2 =
+
+* Added uninstall routine to delete configuration data stored in the database when uninstalling the plugin.
+
 = 0.1.1 =
 
 * Added Danish translation.
