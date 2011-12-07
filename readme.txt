@@ -12,11 +12,17 @@ Simple implementation of the Gemius tracking script.
 
 Integrates [Gemius](http://www.gemius.com/) tracking on your blog.
 
+* Automatically adds the Gemius tracking script to all pages.
+
 == Installation ==
 
 1. Upload the `gemiuswp` folder to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Enter the Gemius Identifier for the site
+
+== Screenshots ==
+
+1. The Gemius for WordPress settings panel.
 
 == Changelog ==
 
