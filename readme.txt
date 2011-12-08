@@ -10,7 +10,7 @@ Simple implementation of the Gemius tracking script.
 
 == Description ==
 
-Integrates [Gemius](http://www.gemius.com/) tracking on your blog.
+Implementing [Gemius](http://www.gemius.com/) tracking on your blog is very easy. The Gemius tracking script is very simply and anybody can implement it. However, when you are changing themes it is quit easy to forget the Gemius tracking script. With Gemius for WordPress plugin you never have to vory about tracking issues again - it just works.
 
 * Automatically adds the Gemius tracking script to all pages.
 
