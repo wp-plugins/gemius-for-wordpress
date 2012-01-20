@@ -2,7 +2,7 @@
 /*
 Plugin Name: Gemius for WordPress
 Description: Integrates Gemius tracking on your blog.
-Version: 0.2
+Version: 1.0
 Author: TLA Media
 Author URI: http://www.tlamedia.dk/
 Plugin URI: http://wpplugins.tlamedia.dk/gemius-for-wordpress/
