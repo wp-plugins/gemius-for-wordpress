@@ -41,3 +41,4 @@ Implementing [Gemius](http://www.gemius.com/) tracking on your blog is very easy
 = 0.1 =
 
 * Initial beta release.
+
