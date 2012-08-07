@@ -3,7 +3,7 @@ Contributors: tlamedia
 Donate link: http://www.tlamedia.dk/
 Tags: gemius
 Requires at least: 2.9
-Tested up to: 3.4
+Tested up to: 3.4.1
 Stable tag: 1.0
 
 Simple implementation of the Gemius tracking script. 
@@ -25,6 +25,10 @@ Implementing [Gemius](http://www.gemius.com/) tracking on your blog is very easy
 1. The Gemius for WordPress settings panel.
 
 == Changelog ==
+
+= 1.0.1 =
+
+* Tested up to WordPress: 3.4.1
 
 = 1.0 =
 
