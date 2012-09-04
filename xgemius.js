@@ -1,4 +1,4 @@
-// (c) 2000-2011 by Gemius SA
+// (c) 2000-2012 by Gemius SA
 
 function gemius_parameters() {
 	var d=document;

@@ -2,7 +2,7 @@
 /*
 Plugin Name: Gemius for WordPress
 Description: Integrates Gemius tracking on your blog.
-Version: 1.0
+Version: 1.1
 Author: TLA Media
 Author URI: http://www.tlamedia.dk/
 Plugin URI: http://wpplugins.tlamedia.dk/gemius-for-wordpress/
@@ -25,7 +25,7 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-define( 'GEMIUSWP_VERSION', '1.0' );
+define( 'GEMIUSWP_VERSION', '1.1' );
 
 
 if ( is_admin() && ! class_exists( 'TLA_GemiusWP_Admin' ) ) {
@@ -116,7 +116,7 @@ function tla_gemiuswp_trackingscript() {
 <!-- Gemius for WordPress by TLA Media - http://www.tlamedia.dk/ -->
 <script type="text/javascript">
 <!--//--><![CDATA[//><!--
-var pp_gemius_identifier = new String('<?php echo $options['gemius_identifier']; ?>');
+var pp_gemius_identifier = "<?php echo $options['gemius_identifier']; ?>";
 //--><!]]>
 </script>
 <script type="text/javascript" src="<?php echo plugins_url( 'xgemius.js' , __FILE__ ); ?>"></script>
@@ -124,4 +124,12 @@ var pp_gemius_identifier = new String('<?php echo $options['gemius_identifier'];
 <?php
 }
 
-add_action('wp_footer','tla_gemiuswp_trackingscript');
+//add_action('wp_footer','tla_gemiuswp_trackingscript');
+
+
+function tla_gemiuswp_scripts() {
+	$options = get_option('gemiuswp_options');
+	wp_enqueue_script( 'gemiuswp', plugins_url('xgemius.js', __FILE__), '', '', true );
+	wp_localize_script( 'gemiuswp', 'pp_gemius_identifier', array( $options['gemius_identifier'] ) );
+}
+add_action( 'wp_enqueue_scripts', 'tla_gemiuswp_scripts' );
