@@ -110,23 +110,6 @@ if ( is_admin() && ! class_exists( 'TLA_GemiusWP_Admin' ) ) {
 }
 
 
-function tla_gemiuswp_trackingscript() {
-	$options = get_option('gemiuswp_options');
-?>
-<!-- Gemius for WordPress by TLA Media - http://www.tlamedia.dk/ -->
-<script type="text/javascript">
-<!--//--><![CDATA[//><!--
-var pp_gemius_identifier = "<?php echo $options['gemius_identifier']; ?>";
-//--><!]]>
-</script>
-<script type="text/javascript" src="<?php echo plugins_url( 'xgemius.js' , __FILE__ ); ?>"></script>
-<!-- End Gemius for WordPress -->
-<?php
-}
-
-//add_action('wp_footer','tla_gemiuswp_trackingscript');
-
-
 function tla_gemiuswp_scripts() {
 	$options = get_option('gemiuswp_options');
 	wp_enqueue_script( 'gemiuswp', plugins_url('xgemius.js', __FILE__), '', '', true );
