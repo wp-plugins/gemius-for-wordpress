@@ -2,8 +2,8 @@
 Contributors: tlamedia
 Donate link: http://www.tlamedia.dk/
 Tags: gemius
-Requires at least: 2.9
-Tested up to: 3.4.1
+Requires at least: 3.2
+Tested up to: 3.5
 Stable tag: 1.1
 
 Simple implementation of the Gemius tracking script. 
