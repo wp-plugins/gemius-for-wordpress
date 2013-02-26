@@ -3,14 +3,14 @@ Contributors: tlamedia
 Donate link: http://www.tlamedia.dk/
 Tags: gemius
 Requires at least: 3.2
-Tested up to: 3.5
-Stable tag: 1.1
+Tested up to: 3.5.1
+Stable tag: 1.2
 
-Simple implementation of the Gemius tracking script. 
+Simple implementation of the Gemius Audience tracking script. 
 
 == Description ==
 
-Implementing [Gemius](http://www.gemius.com/) tracking on your blog is very easy. The Gemius tracking script is very simple and anybody can implement it. However, when you are changing themes it is quit easy to forget the Gemius tracking script. With Gemius for WordPress plugin you never have to vory about tracking issues again - it just works.
+Implementing [Gemius](http://www.gemius.com/) Audience tracking on your blog is very easy. The Gemius tracking script is very simple and anybody can implement it. However, when you are changing themes it is quit easy to forget the Gemius tracking script. With Gemius for WordPress plugin you never have to vory about tracking issues again - it just works.
 
 * Automatically adds the Gemius tracking script to all pages.
 
@@ -22,9 +22,15 @@ Implementing [Gemius](http://www.gemius.com/) tracking on your blog is very easy
 
 == Screenshots ==
 
-1. The Gemius for WordPress settings panel.
+1. The Gemius Audience for WordPress settings panel.
 
 == Changelog ==
+
+= 1.2 = 
+
+* Updated tracking script to the new improved version that uses BrowserID based on a combination of 3rd party cookies, 1st party cookies and localStorage identifiers. 
+
+* Tested up to WordPress: 3.5.1
 
 = 1.1 = 
 

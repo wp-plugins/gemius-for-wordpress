@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name: Gemius for WordPress
-Description: Integrates Gemius tracking on your blog.
-Version: 1.1
+Plugin Name: Gemius Audience for WordPress
+Description: Integrates Gemius Audience tracking on your blog.
+Version: 1.2
 Author: TLA Media
 Author URI: http://www.tlamedia.dk/
 Plugin URI: http://wpplugins.tlamedia.dk/gemius-for-wordpress/
@@ -25,7 +25,7 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-define( 'GEMIUSWP_VERSION', '1.1' );
+define( 'GEMIUSWP_VERSION', '1.2' );
 
 
 if ( is_admin() && ! class_exists( 'TLA_GemiusWP_Admin' ) ) {
@@ -36,8 +36,8 @@ if ( is_admin() && ! class_exists( 'TLA_GemiusWP_Admin' ) ) {
 			?>
 			<div class="wrap">
 				<div id="icon-options-general" class="icon32"><br /></div>
-				<h2><?php _e('Gemius for WordPress', 'gemiuswp'); ?></h2>
-				<p><?php _e('All you need to do to setup Gemius for WordPress is enter the Gemius Identifier and you are good to go.', 'gemiuswp'); ?></p><br />
+				<h2><?php _e('Gemius Audience for WordPress', 'gemiuswp'); ?></h2>
+				<p><?php _e('All you need to do to setup Gemius Audience for WordPress is enter the Gemius Identifier and you are good to go.', 'gemiuswp'); ?></p><br />
 				<form action="options.php" method="post">
 					<?php settings_fields('gemiuswp_options'); ?>
 					<?php do_settings_sections('gemiuswp'); ?>
@@ -110,9 +110,22 @@ if ( is_admin() && ! class_exists( 'TLA_GemiusWP_Admin' ) ) {
 }
 
 
-function tla_gemiuswp_scripts() {
+function tla_gemiuswp_script() {
 	$options = get_option('gemiuswp_options');
-	wp_enqueue_script( 'gemiuswp', plugins_url('xgemius.js', __FILE__), '', '', true );
-	wp_localize_script( 'gemiuswp', 'pp_gemius_identifier', array( $options['gemius_identifier'] ) );
+	?>
+<!-- Gemius Audience for WordPress by TLA Media - http://www.tlamedia.dk/ -->
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var pp_gemius_identifier = '<?php echo $options['gemius_identifier']; ?>';
+
+(function(d,t) {var ex; try {var
+gt=d.createElement(t),s=d.getElementsByTagName(t)[0],l='http'+((location.protocol=='https:')?'s':'');
+gt.async='true'; gt.src=l+'://gadk.hit.gemius.pl/xlgemius.js'; s.parentNode.insertBefore(gt,s);} catch (ex)
+{}}(document,'script'));
+//--><!]]>
+</script>
+<!-- End Gemius Audience for WordPress -->
+<?php
 }
-add_action( 'wp_enqueue_scripts', 'tla_gemiuswp_scripts' );
+
+add_action('wp_footer','tla_gemiuswp_script');
