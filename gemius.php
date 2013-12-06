@@ -2,7 +2,7 @@
 /*
 Plugin Name: Gemius Audience for WordPress
 Description: Integrates Gemius Audience tracking on your blog.
-Version: 1.2.1
+Version: 1.2.2
 Author: TLA Media
 Author URI: http://www.tlamedia.dk/
 Plugin URI: http://wpplugins.tlamedia.dk/gemius-for-wordpress/
@@ -25,7 +25,7 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-define( 'GEMIUSWP_VERSION', '1.2.1' );
+define( 'GEMIUSWP_VERSION', '1.2.2' );
 
 
 if ( is_admin() && ! class_exists( 'TLA_GemiusWP_Admin' ) ) {

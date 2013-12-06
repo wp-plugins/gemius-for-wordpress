@@ -1,10 +1,10 @@
 === Gemius for WordPress ===
-Contributors: tlamedia
+Contributors: tlamedia, ecatalyst
 Donate link: http://www.tlamedia.dk/
 Tags: gemius
 Requires at least: 3.2
-Tested up to: 3.6
-Stable tag: 1.2.1
+Tested up to: 3.8
+Stable tag: 1.2.2
 
 Simple implementation of the Gemius Audience tracking script. 
 
@@ -26,7 +26,11 @@ Implementing [Gemius](http://www.gemius.com/) Audience tracking on your blog is 
 
 == Changelog ==
 
-= 1.2.1 = 
+= 1.2.2 =
+
+* Tested up to WordPress: 3.8
+
+= 1.2.1 =
 
 * Tested up to WordPress: 3.6
 
